@@ -32,7 +32,7 @@ set shiftwidth=4
 set expandtab           " Replace tab with space
 set smartindent
 set cursorline
-set clipboard=unnamedplus
+set clipboard^=unnamed,unnamedplus
 set ic                  " Ignore case
 set hlsearch            " Highlight search
 set showcmd
@@ -40,6 +40,8 @@ set incsearch
 set spell
 
 command! MakeTags !ctags -R .
+command! -nargs=1 Hr horizontal resize <args>
+command! -nargs=1 Vr vertical resize <args>
 
 map <F4> : set nu! relativenumber!<CR>
 noremap <leader>h :nohl<CR>
