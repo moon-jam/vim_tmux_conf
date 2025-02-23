@@ -1,4 +1,4 @@
-# .vimrc and tmux.conf
+# `.vimrc` and `.tmux.conf`
 
 ## Setup
 
