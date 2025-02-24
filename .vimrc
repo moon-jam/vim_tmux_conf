@@ -9,6 +9,7 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'scrooloose/nerdtree'
+Plug 'preservim/nerdcommenter'
 Plug 'tpope/vim-surround'
 Plug 'hotoo/pangu.vim'
 Plug 'dense-analysis/ale'
@@ -70,3 +71,9 @@ let g:neocomplcache_enable_smart_case = 1
 
 " Git commit auto wrap
 autocmd FileType gitcommit setlocal textwidth=72
+
+" Comment setting
+let g:NERDCreateDefaultMappings = 1
+let g:NERDSpaceDelims = 1
+let g:NERDCompactSexyComs = 1
+let g:NERDDefaultNesting = 1
