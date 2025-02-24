@@ -67,3 +67,6 @@ autocmd BufWritePre *.h,*.hpp,*.c,*.cc,*.cpp call FormatOnSave()
 hi Pmenu ctermfg=0 ctermbg=7
 hi PmenuSel ctermfg=7 ctermbg=4
 let g:neocomplcache_enable_smart_case = 1
+
+" Git commit auto wrap
+autocmd FileType gitcommit setlocal textwidth=72
