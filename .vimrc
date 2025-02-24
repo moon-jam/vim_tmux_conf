@@ -38,6 +38,8 @@ set hlsearch            " Highlight search
 set showcmd
 set incsearch
 set spell
+set splitbelow
+set splitright
 
 command! MakeTags !ctags -R .
 command! -nargs=1 Hr horizontal resize <args>
