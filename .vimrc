@@ -9,6 +9,7 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'scrooloose/nerdtree'
+Plug 'preservim/nerdcommenter'
 Plug 'tpope/vim-surround'
 Plug 'hotoo/pangu.vim'
 Plug 'dense-analysis/ale'
@@ -39,6 +40,7 @@ set showcmd
 set incsearch
 set spell
 set splitbelow
+set splitright
 
 command! MakeTags !ctags -R .
 command! -nargs=1 Hr horizontal resize <args>
@@ -66,3 +68,12 @@ autocmd BufWritePre *.h,*.hpp,*.c,*.cc,*.cpp call FormatOnSave()
 hi Pmenu ctermfg=0 ctermbg=7
 hi PmenuSel ctermfg=7 ctermbg=4
 let g:neocomplcache_enable_smart_case = 1
+
+" Git commit auto wrap
+autocmd FileType gitcommit setlocal textwidth=72
+
+" Comment setting
+let g:NERDCreateDefaultMappings = 1
+let g:NERDSpaceDelims = 1
+let g:NERDCompactSexyComs = 1
+let g:NERDDefaultNesting = 1
