@@ -20,7 +20,7 @@ if empty(glob('~/.config/coc/extensions/package.json'))
 endif
 
 
-colorscheme evening
+colorscheme default
 let mapleader=' '
 set nocompatible
 set ai                  " Auto indent
@@ -38,6 +38,7 @@ set hlsearch            " Highlight search
 set showcmd
 set incsearch
 set spell
+set splitbelow
 
 command! MakeTags !ctags -R .
 command! -nargs=1 Hr horizontal resize <args>
