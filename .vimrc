@@ -49,6 +49,7 @@ command! -nargs=1 Vr vertical resize <args>
 map <F4> : set nu! relativenumber!<CR>
 noremap <leader>h :nohl<CR>
 noremap <leader>e :NERDTreeToggle<CR>
+noremap <leader>s :set spell!<CR>
 
 " Finding
 set path+=**            " Search down into subfolder and provide tab-completion
