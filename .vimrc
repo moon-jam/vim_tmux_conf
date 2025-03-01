@@ -13,6 +13,7 @@ Plug 'preservim/nerdcommenter'
 Plug 'tpope/vim-surround'
 Plug 'hotoo/pangu.vim'
 Plug 'dense-analysis/ale'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' }
 
 call plug#end()
 
@@ -50,6 +51,7 @@ map <F4> : set nu! relativenumber!<CR>
 noremap <leader>h :nohl<CR>
 noremap <leader>e :NERDTreeToggle<CR>
 noremap <leader>s :set spell!<CR>
+noremap <leader>m <Plug>MarkdownPreviewToggle
 
 " Finding
 set path+=**            " Search down into subfolder and provide tab-completion
