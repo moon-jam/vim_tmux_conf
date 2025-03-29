@@ -39,7 +39,6 @@ set ic                  " Ignore case
 set hlsearch            " Highlight search
 set showcmd
 set incsearch
-set spell
 set splitbelow
 set splitright
 
@@ -73,7 +72,7 @@ hi PmenuSel ctermfg=7 ctermbg=4
 let g:neocomplcache_enable_smart_case = 1
 
 " Git commit auto wrap
-autocmd FileType gitcommit setlocal textwidth=72
+autocmd FileType gitcommit setlocal textwidth=72 spell
 
 " Comment setting
 let g:NERDCreateDefaultMappings = 1
