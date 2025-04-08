@@ -14,6 +14,8 @@ Plug 'tpope/vim-surround'
 Plug 'hotoo/pangu.vim'
 Plug 'dense-analysis/ale'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' }
+Plug 'ap/vim-css-color'
+Plug 'vimwiki/vimwiki'
 
 call plug#end()
 
