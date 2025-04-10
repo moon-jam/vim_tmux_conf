@@ -81,3 +81,6 @@ let g:NERDCreateDefaultMappings = 1
 let g:NERDSpaceDelims = 1
 let g:NERDCompactSexyComs = 1
 let g:NERDDefaultNesting = 1
+
+" JavaScript, HTML, JSON indent
+autocmd FileType javascript,html,json setlocal tabstop=2 shiftwidth=2
