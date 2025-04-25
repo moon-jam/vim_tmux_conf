@@ -16,11 +16,14 @@ Plug 'dense-analysis/ale'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' }
 Plug 'ap/vim-css-color'
 Plug 'vimwiki/vimwiki'
+Plug 'alvan/vim-closetag'
+Plug 'sheerun/vim-polyglot'
+Plug 'mattn/emmet-vim'
 
 call plug#end()
 
 if empty(glob('~/.config/coc/extensions/package.json'))
-  autocmd VimEnter * CocInstall -sync coc-clangd coc-snippets coc-tsserver coc-json coc-python
+  autocmd VimEnter * CocInstall -sync coc-clangd coc-snippets coc-tsserver coc-json coc-python coc-emmet
 endif
 
 
@@ -43,6 +46,8 @@ set showcmd
 set incsearch
 set splitbelow
 set splitright
+set lazyredraw
+set ttyfast
 
 command! MakeTags !ctags -R .
 command! -nargs=1 Hr horizontal resize <args>
@@ -83,4 +88,42 @@ let g:NERDCompactSexyComs = 1
 let g:NERDDefaultNesting = 1
 
 " JavaScript, HTML, JSON indent
-autocmd FileType javascript,html,json setlocal tabstop=2 shiftwidth=2
+autocmd FileType javascript,html,css,json setlocal tabstop=2 shiftwidth=2
+
+" Close tag setting
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.js,*.jsx,*.ts,*.tsx'
+let g:closetag_regions = {
+  \ 'typescript.tsx': 'jsxRegion,tsxRegion',
+  \ 'javascript.jsx': 'jsxRegion',
+  \ 'typescriptreact': 'jsxRegion,tsxRegion',
+  \ 'javascriptreact': 'jsxRegion'
+  \}
+let g:closetag_shortcut = '>>'
+
+" Coc Config
+set updatetime=300
+inoremap <silent><expr> <C-J> coc#refresh()
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+inoremap <expr> <CR> pumvisible() ? coc#_select_confirm() : "\<CR>"
+
+"auto close {
+function! s:CloseBracket()
+    let line = getline('.')
+    if line =~# '^\s*\(struct\|class\|enum\) '
+        return "{\<Enter>};\<Esc>O"
+    elseif searchpair('(', '', ')', 'bmn', '', line('.'))
+        " Probably inside a function call. Close it off.
+        return "{\<Enter>});\<Esc>O"
+    else
+        return "{\<Enter>}\<Esc>O"
+    endif
+endfunction
+inoremap <expr> {<Enter> <SID>CloseBracket()
+
+" Pangu
+autocmd BufWritePre *.markdown,*.md,*.text,*.txt,*.wiki,*.cnx call PanGuSpacing('ALL')
+
+"Emmet
+let g:user_emmet_leader_key='<C-M>'
+let g:user_emmet_expandabbr_key='<C-K>'
