@@ -19,6 +19,8 @@ Plug 'vimwiki/vimwiki'
 Plug 'alvan/vim-closetag'
 Plug 'sheerun/vim-polyglot'
 Plug 'mattn/emmet-vim'
+Plug 'lervag/vimtex'
+Plug 'honza/vim-snippets'
 
 call plug#end()
 
@@ -58,6 +60,7 @@ noremap <leader>h :nohl<CR>
 noremap <leader>e :NERDTreeToggle<CR>
 noremap <leader>s :set spell!<CR>
 noremap <leader>m <Plug>MarkdownPreviewToggle
+autocmd FileType tex nnoremap <buffer> <leader>c :VimtexTocToggle<CR>
 
 " Finding
 set path+=**            " Search down into subfolder and provide tab-completion
