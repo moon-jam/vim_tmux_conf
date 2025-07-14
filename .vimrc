@@ -127,8 +127,8 @@ endfunction
 inoremap <expr> {<Enter> <SID>CloseBracket()
 
 " Pangu
-autocmd BufWritePre *.markdown,*.md,*.text,*.txt,*.wiki,*.cnx call PanGuSpacing('ALL')
+" autocmd BufWritePre *.markdown,*.md,*.text,*.txt,*.wiki,*.cnx call PanGuSpacing('ALL')
 
 "Emmet
-let g:user_emmet_leader_key='<C-M>'
-let g:user_emmet_expandabbr_key='<C-K>'
+" let g:user_emmet_leader_key='<C-M>'
+" let g:user_emmet_expandabbr_key='<C-K>'
