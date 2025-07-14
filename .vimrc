@@ -11,7 +11,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'scrooloose/nerdtree'
 Plug 'preservim/nerdcommenter'
 Plug 'tpope/vim-surround'
-Plug 'hotoo/pangu.vim'
+" Plug 'hotoo/pangu.vim'
 Plug 'dense-analysis/ale'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' }
 Plug 'ap/vim-css-color'
@@ -21,6 +21,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'mattn/emmet-vim'
 Plug 'lervag/vimtex'
 Plug 'honza/vim-snippets'
+Plug 'Lokaltog/vim-easymotion'
 
 call plug#end()
 
@@ -50,6 +51,7 @@ set splitbelow
 set splitright
 set lazyredraw
 set ttyfast
+" set timeoutlen=200
 
 command! MakeTags !ctags -R .
 command! -nargs=1 Hr horizontal resize <args>
@@ -101,7 +103,7 @@ let g:closetag_regions = {
   \ 'typescriptreact': 'jsxRegion,tsxRegion',
   \ 'javascriptreact': 'jsxRegion'
   \}
-let g:closetag_shortcut = '>>'
+let g:closetag_shortcut = '>'
 
 " Coc Config
 set updatetime=300
