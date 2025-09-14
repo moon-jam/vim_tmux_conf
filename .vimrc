@@ -18,7 +18,7 @@ Plug 'ap/vim-css-color'
 Plug 'vimwiki/vimwiki'
 Plug 'alvan/vim-closetag'
 Plug 'sheerun/vim-polyglot'
-Plug 'mattn/emmet-vim'
+" Plug 'mattn/emmet-vim'
 
 call plug#end()
 
@@ -48,10 +48,13 @@ set splitbelow
 set splitright
 set lazyredraw
 set ttyfast
+set langmenu=en
+language messages en_US.UTF-8
 
 command! MakeTags !ctags -R .
 command! -nargs=1 Hr horizontal resize <args>
 command! -nargs=1 Vr vertical resize <args>
+command! -nargs=1 Te tabe <args>
 
 map <F4> : set nu! relativenumber!<CR>
 noremap <leader>h :nohl<CR>
@@ -127,3 +130,7 @@ autocmd BufWritePre *.markdown,*.md,*.text,*.txt,*.wiki,*.cnx call PanGuSpacing(
 "Emmet
 let g:user_emmet_leader_key='<C-M>'
 let g:user_emmet_expandabbr_key='<C-K>'
+
+" NERD Tree
+let g:NERDTreeWinSize = 30
+autocmd FileType nerdtree nnoremap <buffer> <Leader>r :Vr 30<CR>
