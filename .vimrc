@@ -49,12 +49,12 @@ set splitright
 set lazyredraw
 set ttyfast
 set langmenu=en
+set ruler
 language messages en_US.UTF-8
 
 command! MakeTags !ctags -R .
 command! -nargs=1 Hr horizontal resize <args>
 command! -nargs=1 Vr vertical resize <args>
-command! -nargs=1 Te tabe <args>
 
 map <F4> : set nu! relativenumber!<CR>
 noremap <leader>h :nohl<CR>
@@ -74,7 +74,7 @@ function! FormatOnSave()
     call setline(1, split(l:formatted, "\n"))
   endif
 endfunction
-autocmd BufWritePre *.h,*.hpp,*.c,*.cc,*.cpp call FormatOnSave()
+" autocmd BufWritePre *.h,*.hpp,*.c,*.cc,*.cpp call FormatOnSave()
 
 " Autocomplete
 hi Pmenu ctermfg=0 ctermbg=7
@@ -125,7 +125,7 @@ endfunction
 inoremap <expr> {<Enter> <SID>CloseBracket()
 
 " Pangu
-autocmd BufWritePre *.markdown,*.md,*.text,*.txt,*.wiki,*.cnx call PanGuSpacing('ALL')
+" autocmd BufWritePre *.markdown,*.md,*.text,*.txt,*.wiki,*.cnx call PanGuSpacing('ALL')
 
 "Emmet
 let g:user_emmet_leader_key='<C-M>'
@@ -134,3 +134,6 @@ let g:user_emmet_expandabbr_key='<C-K>'
 " NERD Tree
 let g:NERDTreeWinSize = 30
 autocmd FileType nerdtree nnoremap <buffer> <Leader>r :Vr 30<CR>
+
+" Vim Wiki
+let g:vimwiki_list = [{'path': '~/vimwiki/'}]
