@@ -11,7 +11,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'scrooloose/nerdtree'
 Plug 'preservim/nerdcommenter'
 Plug 'tpope/vim-surround'
-Plug 'hotoo/pangu.vim'
+" Plug 'hotoo/pangu.vim'
 Plug 'dense-analysis/ale'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' }
 Plug 'ap/vim-css-color'
@@ -19,6 +19,9 @@ Plug 'vimwiki/vimwiki'
 Plug 'alvan/vim-closetag'
 Plug 'sheerun/vim-polyglot'
 " Plug 'mattn/emmet-vim'
+Plug 'lervag/vimtex'
+Plug 'honza/vim-snippets'
+Plug 'Lokaltog/vim-easymotion'
 
 call plug#end()
 
@@ -51,6 +54,7 @@ set ttyfast
 set langmenu=en
 set ruler
 language messages en_US.UTF-8
+" set timeoutlen=200
 
 command! MakeTags !ctags -R .
 command! -nargs=1 Hr horizontal resize <args>
@@ -61,6 +65,7 @@ noremap <leader>h :nohl<CR>
 noremap <leader>e :NERDTreeToggle<CR>
 noremap <leader>s :set spell!<CR>
 noremap <leader>m <Plug>MarkdownPreviewToggle
+autocmd FileType tex nnoremap <buffer> <leader>c :VimtexTocToggle<CR>
 
 " Finding
 set path+=**            " Search down into subfolder and provide tab-completion
@@ -101,7 +106,7 @@ let g:closetag_regions = {
   \ 'typescriptreact': 'jsxRegion,tsxRegion',
   \ 'javascriptreact': 'jsxRegion'
   \}
-let g:closetag_shortcut = '>>'
+let g:closetag_shortcut = '>'
 
 " Coc Config
 set updatetime=300
@@ -128,8 +133,8 @@ inoremap <expr> {<Enter> <SID>CloseBracket()
 " autocmd BufWritePre *.markdown,*.md,*.text,*.txt,*.wiki,*.cnx call PanGuSpacing('ALL')
 
 "Emmet
-let g:user_emmet_leader_key='<C-M>'
-let g:user_emmet_expandabbr_key='<C-K>'
+" let g:user_emmet_leader_key='<C-M>'
+" let g:user_emmet_expandabbr_key='<C-K>'
 
 " NERD Tree
 let g:NERDTreeWinSize = 30
