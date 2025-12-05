@@ -1,9 +1,12 @@
-# `.vimrc` and `.tmux.conf`
+# dotfiles
+
+`.vimrc`, `.tmux.conf`, and `.clangd`
 
 ## Setup
 
 ```
-ln -s ~/vim_tmux_conf/.vimrc ~/.vimrc
+ln -s ~/dotfiles/.vimrc ~/.vimrc
+ls -s ~/dotfiles/.clangd ~/.clangd
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-ln -s ~/vim_tmux_conf/.tmux.conf ~/.tmux.conf
+ln -s ~/dotfiles/.tmux.conf ~/.tmux.conf
 ```

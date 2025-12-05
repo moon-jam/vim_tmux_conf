@@ -12,7 +12,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'preservim/nerdcommenter'
 Plug 'tpope/vim-surround'
 " Plug 'hotoo/pangu.vim'
-Plug 'dense-analysis/ale'
+" Plug 'dense-analysis/ale'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' }
 Plug 'ap/vim-css-color'
 Plug 'vimwiki/vimwiki'
@@ -124,6 +124,9 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+nmap <silent> <leader>d :<C-u>CocList diagnostics<cr>
+command! Fix call CocActionAsync('codeAction', 'cursor')
+cabbrev fix Fix
 
 "auto close {
 function! s:CloseBracket()
@@ -148,17 +151,12 @@ inoremap <expr> {<Enter> <SID>CloseBracket()
 
 " NERD Tree
 let g:NERDTreeWinSize = 30
+let g:NERDTreeShowLineNumbers = 1
+autocmd FileType nerdtree setlocal relativenumber
 autocmd FileType nerdtree nnoremap <buffer> <Leader>r :Vr 30<CR>
 
 " Vim Wiki
 let g:vimwiki_list = [{'path': '~/vimwiki/'}]
-
-" ALE
-let g:ale_linters_explicit = 1
-let g:ale_c_cc_executable = '/opt/homebrew/bin/gcc-15'
-let g:ale_cpp_cc_executable = '/opt/homebrew/bin/g++-15'
-let g:ale_c_gcc_options = '-std=c11 -Wall -O0'
-let g:ale_cpp_gcc_options = '-std=c++17 -Wall -O0'
 
 " easymotion
 map <Leader><Leader> <Plug>(easymotion-prefix)
