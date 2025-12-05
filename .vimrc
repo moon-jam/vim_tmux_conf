@@ -22,6 +22,9 @@ Plug 'sheerun/vim-polyglot'
 Plug 'lervag/vimtex'
 Plug 'honza/vim-snippets'
 Plug 'Lokaltog/vim-easymotion'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+" Dependency: brew install fzf bat ripgrep the_silver_searcher perl universal-ctags
 
 call plug#end()
 
@@ -53,6 +56,7 @@ set lazyredraw
 set ttyfast
 set langmenu=en
 set ruler
+set colorcolumn=80
 language messages en_US.UTF-8
 " set timeoutlen=200
 
@@ -96,7 +100,7 @@ let g:NERDCompactSexyComs = 1
 let g:NERDDefaultNesting = 1
 
 " JavaScript, HTML, JSON indent
-autocmd FileType javascript,html,css,json setlocal tabstop=2 shiftwidth=2
+autocmd FileType javascript,html,css,json,tex setlocal tabstop=2 shiftwidth=2
 
 " Close tag setting
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.js,*.jsx,*.ts,*.tsx'
@@ -114,6 +118,12 @@ inoremap <silent><expr> <C-J> coc#refresh()
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 inoremap <expr> <CR> pumvisible() ? coc#_select_confirm() : "\<CR>"
+nnoremap <silent> K :call ShowDocumentation()<CR>
+nmap <Leader>rn <Plug>(coc-rename)
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
 "auto close {
 function! s:CloseBracket()
@@ -142,3 +152,20 @@ autocmd FileType nerdtree nnoremap <buffer> <Leader>r :Vr 30<CR>
 
 " Vim Wiki
 let g:vimwiki_list = [{'path': '~/vimwiki/'}]
+
+" ALE
+let g:ale_linters_explicit = 1
+let g:ale_c_cc_executable = '/opt/homebrew/bin/gcc-15'
+let g:ale_cpp_cc_executable = '/opt/homebrew/bin/g++-15'
+let g:ale_c_gcc_options = '-std=c11 -Wall -O0'
+let g:ale_cpp_gcc_options = '-std=c++17 -Wall -O0'
+
+" easymotion
+map <Leader><Leader> <Plug>(easymotion-prefix)
+
+" fzf
+nnoremap <Leader>f :Files<CR>
+nnoremap <Leader>g :Rg<CR>
+nnoremap <Leader>b :Buffers<CR>
+nnoremap <Leader>l :BLines<CR>
+set rtp+=/opt/homebrew/opt/fzf
