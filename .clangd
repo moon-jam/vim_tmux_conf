@@ -1,3 +1,13 @@
+If:
+  PathMatch: .*\.(cpp|cc|h|hpp)
 CompileFlags:
   Add: [-std=c++17, -Wall, --driver-mode=g++]
   Compiler: /opt/homebrew/bin/g++-15
+
+---
+
+If:
+  PathMatch: .*\.c
+CompileFlags:
+  Add: [-std=c11, -Wall]
+  Compiler: /opt/homebrew/bin/gcc-15
